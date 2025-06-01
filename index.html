@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arjun Rajput | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+      --bg: #f4f4f4;
+      --text: #333;
+      --accent: #0077ff;
+      --card-bg: rgba(255, 255, 255, 0.6);
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --accent: #00c6ff;
+      --card-bg: rgba(18, 18, 18, 0.8);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 10%;
+      background-color: var(--card-bg);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 10% 2rem;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .typed-text {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    section {
+      padding: 3rem 10%;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 20px;
+      margin-top: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills ul,
+    .projects ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skills li,
+    .projects li {
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      list-style: none;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+    }
+
+    .modal-close {
+      cursor: pointer;
+      float: right;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .socials a {
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Arjun Rajput</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  </nav>
+
+  <section class="hero" data-aos="fade-up">
+    <img src="arjun.jpg" alt="Arjun">
+    <h1>Hi, I'm Arjun 👋</h1>
+    <p><span class="typed-text">Java Developer</span></p>
+    <a href="#" class="resume-btn" download>📄 Download Resume</a>
+  </section>
+
+  <section id="about" class="card" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>I’m currently a 6th-semester BE student passionate about Full Stack Development. I build clean UIs, write scalable backend code, and never stop learning!</p>
+  </section>
+
+  <section id="skills" class="card skills" data-aos="zoom-in">
+    <h2>Skills</h2>
+    <ul>
+      <li>Java</li>
+      <li>React</li>
+      <li>Firebase</li>
+      <li>MongoDB</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Tailwind</li>
+      <li>Git</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="card projects" data-aos="fade-left">
+    <h2>Projects</h2>
+    <ul>
+      <li onclick="openModal('Society Management App')">Society Management App</li>
+      <li onclick="openModal('Stock Prediction with ML')">Stock Prediction with ML</li>
+      <li onclick="openModal('Smart Irrigation System')">Smart Irrigation System</li>
+      <li onclick="openModal('React News App')">React News App</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="card" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required/>
+      <input type="email" id="email" placeholder="Your Email" required/>
+      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="socials">
+      <a href="https://github.com/ArjunRajput0206" target="_blank">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/arjun-rajput/" target="_blank">🔗 LinkedIn</a>
+      <a href="https://www.instagram.com/arjun_gg02/" target="_blank">📸 Instagram</a>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Arjun Rajput. Built with ❤️</footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Project Title</h3>
+      <p>This project showcases my skills in React, Firebase, and backend dev. Click outside to close.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    AOS.init();
+
+    emailjs.init('Arjun');  // Replace with your EmailJS User ID
+
+    new Typed(".typed-text", {
+      strings: ["Full Stack Developer", "Java Enthusiast", "React Fan", "Lifelong Learner"],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+    }
+
+    function sendMessage(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      emailjs.send('service_ib0ep5a', 'YOUR_TEMPLATE_ID', {
+        from_name: name,
+        from_email: email,
+        message: message
+      })
+      .then((response) => {
+        alert("Thanks for the message, I’ll reach out soon!");
+        document.getElementById("contact-form").reset();  // Reset form after success
+      }, (error) => {
+        alert("Something went wrong. Please try again!");
+      });
+    }
+
+    function openModal(title) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) modal.style.display = "none";
+    }
+
+    // Attach sendMessage function to form submission
+    document.getElementById("contact-form").addEventListener("submit", sendMessage);
+  </script>
+</body>
+</html>
